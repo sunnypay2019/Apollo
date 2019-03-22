@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <title>Apollo Demo</title>
+    <title>SunnyPay Demo</title>
     <link rel="stylesheet" href="page/css/weui.min.css"/>
     <link rel="stylesheet" href="page/css/example.css"/>
     <script type="text/javascript" src="page/js/jquery.min.js"></script>
@@ -15,7 +15,7 @@
 <div class="container" id="container">
 <div class="page input js_show">
     <div class="page__hd">
-        <h1 class="page__title">Apollo Demo V0.1</h1>
+        <h1 class="page__title">SunnyPay Demo V0.1</h1>
         <p class="page__desc">订单查询演示</p>
     </div>
     <div class="page__bd">

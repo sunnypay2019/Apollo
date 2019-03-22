@@ -182,7 +182,7 @@ class Apollo {
 			if ($json['code']==0){
 				return $json;
 			}else{
-				throw new Exception("Apollo api return an exception, error code : ".$json['code'] ,$json['code']);
+				throw new Exception("SunnyPay api return an exception, error code : ".$json['code'] ,$json['code']);
 			}
 		} catch (Exception $e) {
 			throw $e;
