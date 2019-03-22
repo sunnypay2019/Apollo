@@ -1,4 +1,4 @@
-# Apollo数字货币支付平台文档
+# SunnyPay数字货币支付平台文档
 
 ### 1、接口调用方式及流程
 > 接口方法：HTTP POST
@@ -32,9 +32,9 @@ sign = md5('key1=value1&key2=value2&key3=value3…&key=xxxx');
 
 > 流程
 ```
-1、第三方平台请求Apollo订单接口下单，订单返回一个支付链接（二维码）
+1、第三方平台请求SunnyPay订单接口下单，订单返回一个支付链接（二维码）
 2、Biztalk扫描支付链接二维码（如果是H5使用场景则转跳H5钱包）,用户使用钱包支付订单。
-3、Apollo服务器端回调通知商户端支付成功。
+3、SunnyPay服务器端回调通知商户端支付成功。
 
 ```
 
@@ -104,7 +104,7 @@ redirect_url | String(255) | N | 支付后回跳URL（用于H5内支付后跳回去）
     "code": 0,
     "data": {
         "order_sn":"201811291225231234567",
-        "qrcode_content": "https://trade-api.bizkey.io/bizwallet/index.html#/?app=apollo&order_sn=201811291225231234567"
+        "qrcode_content": "https://trade-api.bizkey.io/bizwallet/index.html#/?app=SunnyPay&order_sn=201811291225231234567"
     }
 } 
 
@@ -128,7 +128,7 @@ order_sn | String | Y | 订单下单时返回的订单号
     "code": 0,
     "data": {
         "order_sn": "201811291225231234567",
-        "qrcode_content": "https://trade-api.bizkey.io/bizwallet/index.html#/?app=bizpay&order_sn=201811291225231234567",
+        "qrcode_content": "https://trade-api.bizkey.io/bizwallet/index.html#/?app=SunnyPay&order_sn=201811291225231234567",
         "mch_id": "10040686401",
         "mch_name":"测试商户",
         "mch_address":"0xdb815ec9Ad1EFDaD80FbE6BbB70E6d3c71835dba",
@@ -194,7 +194,7 @@ remark | String(128) | N | 备注说明
 
 ### 7、订单支付回调通知（Callback）
 ```
-说明：用户支付订单后Apollo服务器端主动向商户平台发起通知
+说明：用户支付订单后SunnyPay服务器端主动向商户平台发起通知
 回调URL：订单下单时提交
 签名规则：与平台接口规则一致
 请求方式：POST
