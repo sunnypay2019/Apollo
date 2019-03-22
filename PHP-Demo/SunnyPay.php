@@ -1,5 +1,5 @@
 <?php
-class Apollo {
+class SunnyPay {
 	
 	private $URL = 'https://api.sunnypay.io/index.php';
 	private $CH_ID = '';
@@ -182,7 +182,7 @@ class Apollo {
 			if ($json['code']==0){
 				return $json;
 			}else{
-				throw new Exception("Apollo api return an exception, error code : ".$json['code'] ,$json['code']);
+				throw new Exception("SunnyPay api return an exception, error code : ".$json['code'] ,$json['code']);
 			}
 		} catch (Exception $e) {
 			throw $e;
@@ -204,7 +204,7 @@ class Apollo {
 			curl_setopt ( $ch, CURLOPT_CUSTOMREQUEST, 'POST' );
 			curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, FALSE );
 			curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, FALSE );
-			curl_setopt ( $ch, CURLOPT_USERAGENT, "Apollo PHP SDK 1.0");
+			curl_setopt ( $ch, CURLOPT_USERAGENT, "SunnyPay PHP SDK 1.0");
 			curl_setopt ( $ch, CURLOPT_FOLLOWLOCATION, 1 );
 			curl_setopt ( $ch, CURLOPT_AUTOREFERER, 1 );
 			curl_setopt ( $ch, CURLOPT_POST, 1);

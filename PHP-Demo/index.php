@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors','On');
 
 include 'config.php';
-include 'Apollo.php';
+include 'SunnyPay.php';
 
 $act = empty($_GET['act'])?'index':trim($_GET['act']);
 $demo= new Demo();
@@ -101,8 +101,8 @@ Class Demo{
 	//回调通知处理
 	public function callback(){
 		 $sign = empty($_POST['sign'])?'':trim($_POST['sign']);
-		 $apl = new Apollo(CH_ID, CH_SECRET);
-		 $sign2 = $apl->MakeSign($_POST);
+		 $snp = new SunnyPay(CH_ID, CH_SECRET);
+		 $sign2 = $snp->MakeSign($_POST);
 		 if ($sign==$sign2){
 		 	  //这里处理回调的事务
 		 	$path = './tmp/callback.txt';
@@ -132,8 +132,8 @@ Class Demo{
 				show_json(-1,'请先输入法币金额');
 			}
 			
-			$apl = new Apollo(CH_ID, CH_SECRET);
-			$result = $apl->CurrencyToDigital($currency, $symbol, $amount);
+			$snp = new SunnyPay(CH_ID, CH_SECRET);
+			$result = $snp->CurrencyToDigital($currency, $symbol, $amount);
 			show_json(1,'转换完成',array('digital'=>$result));
 		} catch (Exception $e) {
 			show_json(-100,$e->getMessage());
@@ -143,8 +143,8 @@ Class Demo{
 	public function balance_api(){
 		try {
 			$asset_id  =empty($_POST['asset_id'])?'':trim($_POST['asset_id']);
-			$apl = new Apollo(CH_ID, CH_SECRET);
-			$result = $apl->balance(MCH_ID, $asset_id);
+			$snp = new SunnyPay(CH_ID, CH_SECRET);
+			$result = $snp->balance(MCH_ID, $asset_id);
 			show_json(1,'查询完成',array('balance'=>$result));
 		} catch (Exception $e) {
 			show_json(-100,$e->getMessage());
@@ -160,8 +160,8 @@ Class Demo{
 			if ($amount==0){
 				show_json(-1,'请先输入要转出的数量');
 			}
-			$apl = new Apollo(CH_ID, CH_SECRET);
-			$withdraw_id = $apl->withdraw(MCH_ID, $asset_id, $amount, $address);
+			$snp = new SunnyPay(CH_ID, CH_SECRET);
+			$withdraw_id = $snp->withdraw(MCH_ID, $asset_id, $amount, $address);
 			show_json(1,'申请成功,申请ID:'.$withdraw_id,array('withdraw_id'=>$withdraw_id));
 		} catch (Exception $e) {
 			show_json(-100,$e->getMessage());
@@ -175,8 +175,8 @@ Class Demo{
 			if (empty($order_sn)){
 				show_json(-1,'请先输入订单号');
 			}
-			$apl = new Apollo(CH_ID, CH_SECRET);
-			$result = $apl->query_order(MCH_ID, $order_sn);
+			$snp = new SunnyPay(CH_ID, CH_SECRET);
+			$result = $snp->query_order(MCH_ID, $order_sn);
 			
 			show_json(1,'查询完成',$result);
 		} catch (Exception $e) {
@@ -200,8 +200,8 @@ Class Demo{
 				show_json(-1,'请先转换得出数字货币数量');
 			}
 			
-			$apl = new Apollo(CH_ID, CH_SECRET);
-			$result = $apl->new_order($mch_id, $out_trade_no, $asset_id, $amount, $callback_url , $desc, $red_url);
+			$snp = new SunnyPay(CH_ID, CH_SECRET);
+			$result = $snp->new_order($mch_id, $out_trade_no, $asset_id, $amount, $callback_url , $desc, $red_url);
 			show_json(1,'下单成功',$result);
 		} catch (Exception $e) {
 			show_json(-100,$e->getMessage());
