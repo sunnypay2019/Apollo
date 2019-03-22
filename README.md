@@ -217,3 +217,11 @@ amount=0.01
 trace_id=6325fb18-acf5-4986-b795-2d1a74a80ce3
 pay_time=1551432607
 ```
+
+
+### ∏Ω±Ì£∫
+
+±“÷÷ | ºÚ≥∆ | asset_id
+---|---|---
+Bizkey | BZKY | de7d29ba-432d-377d-95cd-e7ad81986bf2
+Hong Kong Dollar Token | HKDT | 61027bec-d546-3d40-8d9c-4b1add177ce2
