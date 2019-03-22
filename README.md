@@ -61,7 +61,7 @@ sign = md5('key1=value1&key2=value2&key3=value3…&key=xxxx');
 c | string | Y | 固定值:common
  m | string | Y |  固定值:exchange
 currency | String | Y |  币种（HKD、CNY）
-asset_code | String | Y | 数字货币代号（HKDT、BZKY）
+asset_code | String | Y | 数字货币代号（HKDT、HKX）
 type | String | Y | to_digital / to_cash
 amount | decimal | Y | 数字货币或者法币金额
 
@@ -135,7 +135,7 @@ order_sn | String | Y | 订单下单时返回的订单号
         "out_trade_no": "123045987654354565430",
         "order_amount": "100.453",
         "asset_id": "6cfe566e-4aad-470b-8c9a-2fd35b49c68d",
-        "asset_code": "BZKY",
+        "asset_code": "HKDT",
         "status": "10"   //10 待支付、11 已支付
     }
 } 
@@ -159,7 +159,7 @@ mch_id | String | Y | 商户的用户ID
     "status": true,
     "code": 0,
     "data": {
-        "asset_code":"BZKY",
+        "asset_code":"HKDT",
         "balance":"300.563"
     }
 } 
@@ -184,7 +184,7 @@ remark | String(128) | N | 备注说明
     "status": true,
     "code": 0,
     "data": {
-        "asset_code":"BZKY",
+        "asset_code":"HKDT",
         "amount":"300.563",
         "withdraw_id":1
     }
@@ -210,10 +210,10 @@ timestamp = 1552472763
 msg_id = BC20190301121
 order_sn=20190301113419226888
 mch_id = 1000001
-payer_user_id=bzky_5bfba04053db95bfba04053df7
+payer_user_id=5bfba04053db95bfba04053df7
 out_trade_no=155141125634566443
 asset_id=de7d29ba-432d-377d-95cd-e7ad81986bf2
-asset_code=BZKY
+asset_code=HKDT
 amount=0.01
 trace_id=6325fb18-acf5-4986-b795-2d1a74a80ce3
 pay_time=1551432607
@@ -224,5 +224,4 @@ pay_time=1551432607
 
 币种 | 简称 | asset_id
 ---|---|---
-Bizkey | BZKY | de7d29ba-432d-377d-95cd-e7ad81986bf2
 Hong Kong Dollar Token | HKDT | 61027bec-d546-3d40-8d9c-4b1add177ce2
