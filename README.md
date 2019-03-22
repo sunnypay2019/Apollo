@@ -199,6 +199,7 @@ remark | String(128) | N | 备注说明
 签名规则：与平台接口规则一致
 请求方式：POST
 编码方式：x-www-form-urlencoded
+回复内容: SUCCESS (正常处理完后需要回复SUCCESS，否则会认为推送失败重新发起。)
 
 POST参数示例：
 (下面的参数实际可能会有变动)
