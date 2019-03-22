@@ -116,7 +116,7 @@ Class Demo{
 		 		exit();
 		 	}
 		 }else{
-		 	 echo '签名验证失败:'.$sign2;
+		 	 echo '签名验证失败:';
 		 	 exit();	
 		 }		 
 	}
@@ -192,7 +192,7 @@ Class Demo{
 			$out_trade_no = "DEMO".time().rand(10,99);
 			$asset_id  =empty($_POST['asset_id'])?'':trim($_POST['asset_id']);
 			$amount   =empty($_POST['amount'])?0:floatval($_POST['amount']);
-			$callback_url = 'http://'.$_SERVER ['HTTP_HOST'].$_SERVER ['PHP_SELF'].'?act=callback' ;
+			$callback_url = 'https://'.$_SERVER ['HTTP_HOST'].$_SERVER ['PHP_SELF'].'?act=callback' ;
 			$desc = '支付DEMO订单';
 			$red_url= 'https://'.$_SERVER ['HTTP_HOST'].$_SERVER ['PHP_SELF'].'?act=show_callback' ;
 			
