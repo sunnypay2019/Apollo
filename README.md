@@ -82,7 +82,7 @@ amount | decimal | Y | 数字货币或者法币金额
 
 
 
-### 3、订单支付通知接口
+### 3、订单下单接口（数字货币下单）
 
 参数 | 类型 | 必填 | 说明
   ---|---|---|---
@@ -104,7 +104,7 @@ redirect_url | String(255) | N | 支付后回跳URL（用于H5内支付后跳回去）
     "code": 0,
     "data": {
         "order_sn":"201811291225231234567",
-        "qrcode_content": "https://trade-api.bizkey.io/bizwallet/index.html#/?app=SunnyPay&order_sn=201811291225231234567"
+        "qrcode_content": "https://trade-api.bizkey.io/bizwallet/index.html#/?app=apollo&order_sn=201811291225231234567"
     }
 } 
 
@@ -219,6 +219,38 @@ trace_id=6325fb18-acf5-4986-b795-2d1a74a80ce3
 pay_time=1551432607
 ```
 
+### 8、订单下单接口（法币下单）
+
+```
+消费者可选的数字货币类型在后台配置；
+实际收到的数字货币币种消费者支付的时候选择为准，收到的数量也根据支付时候的汇率进行转换
+```
+
+参数 | 类型 | 必填 | 说明
+  ---|---|---|---
+c | String | Y | 固定值:order
+ m | String | Y |  固定值:new_cash_order
+mch_id | String | Y | 商户号( 由平台分配 )
+out_trade_no | String | Y | 第三方平台(接入方)订单号
+desc | String(100) | N | 订单交易商品描述
+currency | String | Y | 法币币种
+amount | decimal(18,8) | Y | 订单金额（法币）
+callback_url | String(255) | Y | 回调通知URL
+redirect_url | String(255) | N | 支付后回跳URL（用于H5内支付后跳回去）
+
+
+- 返回示例
+```
+{
+    "status": true,
+    "code": 0,
+    "data": {
+        "order_sn":"201811291225231234567",
+        "qrcode_content": "https://trade-api.bizkey.io/bizwallet/index.html#/?app=apollo&cash_order_sn=201811291225231234567"
+    }
+} 
+
+```
 
 ### 附表：
 
