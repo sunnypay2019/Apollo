@@ -192,10 +192,10 @@ remark | String(128) | N | 备注说明
 ```
 
 
-### 7、订单支付回调通知（Callback）
+### 7、订单支付/提币审核回调通知（Callback）
 ```
-说明：用户支付订单后SunnyPay服务器端主动向商户平台发起通知
-回调URL：订单下单时提交
+说明：用户支付订单后SunnyPay服务器端主动向商户平台发起通知；提币申请审核时向渠道商发起通知；
+回调URL：订单是下单时提交，提币状态变更通知URL是在渠道商户后台自己设置。
 签名规则：与平台接口规则一致
 请求方式：POST
 编码方式：x-www-form-urlencoded
@@ -203,7 +203,7 @@ remark | String(128) | N | 备注说明
 
 POST参数示例：
 (下面的参数实际可能会有变动)
-
+订单：
 ch_id=10001
 sign = 8f60c8102d29fcd525162d02eed4566b
 timestamp = 1552472763
@@ -217,6 +217,20 @@ asset_code=HKDT
 amount=0.01
 trace_id=6325fb18-acf5-4986-b795-2d1a74a80ce3
 pay_time=1551432607
+
+提币：
+withdraw_id=1
+ch_id=10001
+sign = 8f60c8102d29fcd525162d02eed4566b
+timestamp = 1552472763
+mch_id = 1000001
+asset_id=de7d29ba-432d-377d-95cd-e7ad81986bf2
+asset_code=HKDT
+amount=153.23
+to_address=0x2f32fD6254344aF21ef2ebD7AdC9D35779435B0c
+status=1     // 0待审核、1提币成功、2转账失败、3已拒绝
+add_time=1551344807
+verify_time=1554956095
 ```
 
 ### 8、订单下单接口（法币下单）
